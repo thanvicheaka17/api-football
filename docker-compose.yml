@@ -1,0 +1,51 @@
+services:
+  api:
+    build: .
+    container_name: api-football
+    ports:
+      - "${API_PORT:-8000}:8000"
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      APP_ENV: development
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    volumes:
+      - .:/app
+      - ./database.db:/app/database.db
+    working_dir: /app
+    command: python main.py
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  redis:
+    image: redis:7-alpine
+    container_name: api-football-redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  live-worker:
+    build: .
+    container_name: api-football-live
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      LIVE_POLL_INTERVAL: ${LIVE_POLL_INTERVAL:-15}
+      LIVE_LEAGUES: ${LIVE_LEAGUES:-all}
+    volumes:
+      - .:/app
+      - ./database.db:/app/database.db
+    working_dir: /app
+    command: python live_worker.py
+    depends_on:
+      redis:
+        condition: service_healthy
