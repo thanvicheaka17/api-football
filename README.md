@@ -1,4 +1,4 @@
-# Livescore API
+# Football API
 
 A local **API-Football proxy** built with FastAPI. It mirrors the [api-football.com v3](https://www.api-football.com/documentation-v3) endpoints, persists responses in **SQLite**, caches upstream calls in **Redis**, and keeps live and recent fixture data fresh via a background worker.
 
@@ -44,7 +44,7 @@ live_worker.py (every 15s)
 ## Project Structure
 
 ```
-livescore-api/
+football-api/
 ├── main.py                 # FastAPI app entry point
 ├── sync.py                 # CLI to sync data from upstream into SQLite
 ├── live_worker.py          # Background worker for live + recent fixtures
