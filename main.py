@@ -1,9 +1,10 @@
 import os
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 import uvicorn
 
+from app.auth import require_api_key
 from app.config import get_settings
 from app.database import get_database
 from app.router import router
@@ -27,15 +28,15 @@ app = FastAPI(
 app.include_router(router)
 
 
-@app.get("/", tags=["Health"])
+@app.get("/", tags=["Health"], dependencies=[Depends(require_api_key)])
 def index():
     return {
-        "status": "failed",
-        "message": "Unauthorized",
+        "status": "ok",
+        "message": "API Football proxy",
     }
 
 
-@app.get("/health", tags=["Health"])
+@app.get("/health", tags=["Health"], dependencies=[Depends(require_api_key)])
 def database_health():
     return get_database().health()
 

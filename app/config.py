@@ -10,6 +10,7 @@ class Settings:
     app_env: str = os.getenv("APP_ENV", "production")
     api_football_url: str = os.getenv("API_FOOTBALL_URL", "https://v3.football.api-sports.io").rstrip("/")
     api_football_key: str = os.getenv("API_FOOTBALL_KEY", "")
+    api_key: str = os.getenv("API_KEY", "")
     redis_host: str = os.getenv("REDIS_HOST", "127.0.0.1")
     redis_port: int = int(os.getenv("REDIS_PORT", "6379"))
     redis_db: int = int(os.getenv("REDIS_DB", "0"))
@@ -19,6 +20,10 @@ class Settings:
     live_poll_interval: int = int(os.getenv("LIVE_POLL_INTERVAL", "15"))
     live_leagues: str = os.getenv("LIVE_LEAGUES", "all")
     fixtures_refresh_days: int = int(os.getenv("FIXTURES_REFRESH_DAYS", "2"))
+    cleanup_enabled: bool = os.getenv("CLEANUP_ENABLED", "true").lower() == "true"
+    cleanup_day: int = int(os.getenv("CLEANUP_DAY", "15"))
+    cleanup_retention_months: int = int(os.getenv("CLEANUP_RETENTION_MONTHS", "3"))
+    cleanup_check_interval: int = int(os.getenv("CLEANUP_CHECK_INTERVAL", "3600"))
 
     @property
     def is_development(self) -> bool:

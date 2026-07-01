@@ -29,6 +29,8 @@ TTL_RULES: list[tuple[str, int]] = [
     (r"^leagues$", 3_600),
     (r"^teams$", 3_600),
     (r"^players/squads$", 3_600),
+    (r"^players/profiles$", 3_600),
+    (r"^players/seasons$", 86_400),
     (r"^players$", 3_600),
     (r"^coachs$", 86_400),
     (r"^status$", 60),

@@ -122,6 +122,7 @@ ENDPOINT_PARAMETERS: dict[str, list[ParamSpec]] = {
         _int("fixture", required=True, description="Fixture ID"),
         _int("team", description="Team ID"),
         _str("type", description="Statistic type filter"),
+        _str("half", description="First or second half stats: true or false"),
     ],
     "fixtures/events": [
         _int("fixture", required=True, description="Fixture ID"),
@@ -132,7 +133,8 @@ ENDPOINT_PARAMETERS: dict[str, list[ParamSpec]] = {
     "fixtures/lineups": [
         _int("fixture", required=True, description="Fixture ID"),
         _int("team", description="Team ID"),
-        _str("type", description="Lineup type, e.g. Starting XI"),
+        _int("player", description="Player ID"),
+        _str("type", description="Lineup type, e.g. startXI or substitute"),
     ],
     "fixtures/players": [
         _int("fixture", required=True, description="Fixture ID"),
@@ -153,6 +155,14 @@ ENDPOINT_PARAMETERS: dict[str, list[ParamSpec]] = {
     ],
     "players/squads": [
         _int("team", required=True, description="Team ID", example=33),
+    ],
+    "players/profiles": [
+        _int("player", description="Player ID", example=276),
+        _str("search", description="Search by player lastname (min 3 chars)"),
+        _page(),
+    ],
+    "players/seasons": [
+        _int("player", description="Player ID — omit for all available seasons", example=276),
     ],
     "players/teams": [
         _int("player", required=True, description="Player ID"),

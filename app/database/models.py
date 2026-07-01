@@ -19,6 +19,14 @@ CREATE INDEX IF NOT EXISTS idx_api_responses_endpoint
     ON api_responses(endpoint);
 CREATE INDEX IF NOT EXISTS idx_api_responses_updated
     ON api_responses(updated_at);
+
+CREATE TABLE IF NOT EXISTS cleanup_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    run_at TEXT NOT NULL,
+    start_date TEXT NOT NULL,
+    end_date TEXT NOT NULL,
+    deleted_count INTEGER NOT NULL
+);
 """
 
 

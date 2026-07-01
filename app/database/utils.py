@@ -27,3 +27,22 @@ def build_empty_response(
         "paging": {"current": 1, "total": 1},
         "response": response_value,
     }
+
+
+def should_persist(payload: dict[str, Any]) -> bool:
+    """Skip caching upstream errors and empty result sets."""
+    if payload.get("errors"):
+        return False
+    if payload.get("results", 0) > 0:
+        return True
+    response = payload.get("response")
+    return isinstance(response, dict) and bool(response)
+
+
+def is_empty_upstream_response(payload: dict[str, Any]) -> bool:
+    if payload.get("errors"):
+        return False
+    if payload.get("results", 0) > 0:
+        return False
+    response = payload.get("response")
+    return not response

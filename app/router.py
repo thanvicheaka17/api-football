@@ -2,10 +2,11 @@ from typing import Any
 
 from fastapi import APIRouter, Depends, Request
 
+from app.auth import require_api_key
 from app.endpoint_params import ENDPOINT_PARAMETERS, openapi_parameters
 from app.service import FootballDataService, get_football_service
 
-router = APIRouter(tags=["API-Football"])
+router = APIRouter(tags=["API-Football"], dependencies=[Depends(require_api_key)])
 
 ENDPOINTS = list(ENDPOINT_PARAMETERS.keys())
 
@@ -25,7 +26,7 @@ async def _proxy(
 def _register_endpoint(path: str) -> None:
     params = openapi_parameters(path)
     required = [p["name"] for p in params if p.get("required")]
-    summary = f"GET /{path} (from database)"
+    summary = f"GET /{path}"
     if required:
         summary += f" — required: {', '.join(required)}"
 
@@ -36,10 +37,6 @@ def _register_endpoint(path: str) -> None:
         return await _proxy(path, request, service)
 
     handler.__name__ = path.replace("/", "_")
-    handler.__doc__ = (
-        f"API-Football compatible endpoint. "
-        f"See https://www.api-football.com/documentation-v3"
-    )
 
     route_kwargs: dict[str, Any] = {
         "methods": ["GET"],

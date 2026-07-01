@@ -1,4 +1,4 @@
-# Football API
+# API Football
 
 A local **API-Football proxy** built with FastAPI. It mirrors the [api-football.com v3](https://www.api-football.com/documentation-v3) endpoints, persists responses in **SQLite**, caches upstream calls in **Redis**, and keeps live and recent fixture data fresh via a background worker.
 
@@ -78,7 +78,7 @@ football-api/
 Create a `.env` file in the project root:
 
 ```env
-API_FOOTBALL_URL=https://api.caltech.it.com
+API_FOOTBALL_URL=https://api.url
 API_FOOTBALL_KEY=your_api_key_here
 
 REDIS_HOST=127.0.0.1
@@ -245,7 +245,6 @@ Example response:
 ```json
 {
   "status": "ok",
-  "database_path": "database.db",
   "total_records": 256,
   "total_results": 10906,
   "oldest_record_at": "2026-06-29T10:25:43+00:00",

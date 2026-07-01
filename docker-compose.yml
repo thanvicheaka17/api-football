@@ -49,3 +49,22 @@ services:
     depends_on:
       redis:
         condition: service_healthy
+
+  cleanup-worker:
+    build: .
+    container_name: api-football-cleanup
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      CLEANUP_ENABLED: ${CLEANUP_ENABLED:-true}
+      CLEANUP_DAY: ${CLEANUP_DAY:-15}
+      CLEANUP_RETENTION_MONTHS: ${CLEANUP_RETENTION_MONTHS:-3}
+      CLEANUP_CHECK_INTERVAL: ${CLEANUP_CHECK_INTERVAL:-3600}
+    volumes:
+      - .:/app
+      - ./database.db:/app/database.db
+    working_dir: /app
+    command: python cleanup_worker.py
+    depends_on:
+      - api

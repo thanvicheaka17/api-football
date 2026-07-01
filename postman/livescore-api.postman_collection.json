@@ -1,0 +1,1644 @@
+{
+  "info": {
+    "_postman_id": "livescore-api-collection",
+    "name": "Livescore API",
+    "description": "API-Football proxy. Set collection variables `baseUrl` and `apiKey`. All requests send the `API_KEY` header.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API_KEY",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "apiKey",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Root",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [],
+              "query": []
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ],
+              "query": []
+            },
+            "description": "GET /"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reference",
+      "item": [
+        {
+          "name": "Timezone",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/timezone",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "timezone"
+              ],
+              "query": []
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "status"
+              ],
+              "query": []
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Countries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/countries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "countries"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "",
+                  "description": "Country name",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "GB-ENG",
+                  "description": "Country code (2-6 chars)",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search by country name (min 3 chars)",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Leagues",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/leagues",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "leagues"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "",
+                  "description": "League name",
+                  "disabled": true
+                },
+                {
+                  "key": "country",
+                  "value": "England",
+                  "description": "Country name",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "",
+                  "description": "Country code",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": true
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                },
+                {
+                  "key": "type",
+                  "value": "",
+                  "description": "League type: league or cup",
+                  "disabled": true
+                },
+                {
+                  "key": "current",
+                  "value": "true",
+                  "description": "Only current seasons: true or false",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search league or country (min 3 chars)",
+                  "disabled": true
+                },
+                {
+                  "key": "last",
+                  "value": "",
+                  "description": "Recently added leagues (max 2 digits)",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Leagues - Seasons",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/leagues/seasons",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "leagues",
+                "seasons"
+              ],
+              "query": []
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Seasons",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/seasons",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "seasons"
+              ],
+              "query": []
+            },
+            "description": "GET /"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Teams & Venues",
+      "item": [
+        {
+          "name": "Teams",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/teams",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "teams"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "33",
+                  "description": "Team ID",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "",
+                  "description": "Team name",
+                  "disabled": true
+                },
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": true
+                },
+                {
+                  "key": "country",
+                  "value": "",
+                  "description": "Country name",
+                  "disabled": true
+                },
+                {
+                  "key": "code",
+                  "value": "",
+                  "description": "Country code",
+                  "disabled": true
+                },
+                {
+                  "key": "venue",
+                  "value": "",
+                  "description": "Venue ID",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search by team name (min 3 chars)",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Teams - Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/teams/statistics?league=39&season=2025&team=33",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "teams",
+                "statistics"
+              ],
+              "query": [
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": false
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": false
+                },
+                {
+                  "key": "team",
+                  "value": "33",
+                  "description": "Team ID",
+                  "disabled": false
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "description": "Stats up to date (YYYY-MM-DD)",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Venues",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/venues",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "venues"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Venue ID",
+                  "disabled": true
+                },
+                {
+                  "key": "name",
+                  "value": "",
+                  "description": "Venue name",
+                  "disabled": true
+                },
+                {
+                  "key": "city",
+                  "value": "",
+                  "description": "City name",
+                  "disabled": true
+                },
+                {
+                  "key": "country",
+                  "value": "",
+                  "description": "Country name",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search venue name (min 3 chars)",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Fixtures",
+      "item": [
+        {
+          "name": "Fixtures",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fixtures",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fixtures"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Fixture ID",
+                  "disabled": true
+                },
+                {
+                  "key": "ids",
+                  "value": "",
+                  "description": "Up to 20 fixture IDs separated by -",
+                  "disabled": true
+                },
+                {
+                  "key": "live",
+                  "value": "all",
+                  "description": "Live fixtures: all or league IDs (e.g. 39-140)",
+                  "disabled": true
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "description": "Fixtures on date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": true
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                },
+                {
+                  "key": "last",
+                  "value": "",
+                  "description": "Last N fixtures (max 2 digits)",
+                  "disabled": true
+                },
+                {
+                  "key": "next",
+                  "value": "",
+                  "description": "Next N fixtures (max 2 digits)",
+                  "disabled": true
+                },
+                {
+                  "key": "from",
+                  "value": "",
+                  "description": "Start date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "to",
+                  "value": "",
+                  "description": "End date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "round",
+                  "value": "",
+                  "description": "Round name from /fixtures/rounds",
+                  "disabled": true
+                },
+                {
+                  "key": "status",
+                  "value": "",
+                  "description": "Status codes (e.g. NS, FT, 1H-HT-2H)",
+                  "disabled": true
+                },
+                {
+                  "key": "venue",
+                  "value": "",
+                  "description": "Venue ID",
+                  "disabled": true
+                },
+                {
+                  "key": "timezone",
+                  "value": "Europe/London",
+                  "description": "Timezone from /timezone",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Fixtures - Rounds",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fixtures/rounds?league=39&season=2025",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fixtures",
+                "rounds"
+              ],
+              "query": [
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": false
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": false
+                },
+                {
+                  "key": "current",
+                  "value": "",
+                  "description": "Only current round: true or false",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Fixtures - Headtohead",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fixtures/headtohead?h2h=33-34",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fixtures",
+                "headtohead"
+              ],
+              "query": [
+                {
+                  "key": "h2h",
+                  "value": "33-34",
+                  "description": "Two team IDs separated by -",
+                  "disabled": false
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "description": "Fixtures on date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "league",
+                  "value": "",
+                  "description": "League ID",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "",
+                  "description": "Season year",
+                  "disabled": true
+                },
+                {
+                  "key": "last",
+                  "value": "",
+                  "description": "Last N fixtures",
+                  "disabled": true
+                },
+                {
+                  "key": "next",
+                  "value": "",
+                  "description": "Next N fixtures",
+                  "disabled": true
+                },
+                {
+                  "key": "from",
+                  "value": "",
+                  "description": "Start date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "to",
+                  "value": "",
+                  "description": "End date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "timezone",
+                  "value": "",
+                  "description": "Timezone from /timezone",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Fixtures - Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fixtures/statistics",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fixtures",
+                "statistics"
+              ],
+              "query": [
+                {
+                  "key": "fixture",
+                  "value": "",
+                  "description": "Fixture ID",
+                  "disabled": false
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                },
+                {
+                  "key": "type",
+                  "value": "",
+                  "description": "Statistic type filter",
+                  "disabled": true
+                },
+                {
+                  "key": "half",
+                  "value": "",
+                  "description": "First or second half stats: true or false",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Fixtures - Events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fixtures/events",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fixtures",
+                "events"
+              ],
+              "query": [
+                {
+                  "key": "fixture",
+                  "value": "",
+                  "description": "Fixture ID",
+                  "disabled": false
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                },
+                {
+                  "key": "player",
+                  "value": "",
+                  "description": "Player ID",
+                  "disabled": true
+                },
+                {
+                  "key": "type",
+                  "value": "",
+                  "description": "Event type: Goal, Card, subst",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Fixtures - Lineups",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fixtures/lineups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fixtures",
+                "lineups"
+              ],
+              "query": [
+                {
+                  "key": "fixture",
+                  "value": "",
+                  "description": "Fixture ID",
+                  "disabled": false
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                },
+                {
+                  "key": "player",
+                  "value": "",
+                  "description": "Player ID",
+                  "disabled": true
+                },
+                {
+                  "key": "type",
+                  "value": "",
+                  "description": "Lineup type, e.g. startXI or substitute",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Fixtures - Players",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/fixtures/players",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "fixtures",
+                "players"
+              ],
+              "query": [
+                {
+                  "key": "fixture",
+                  "value": "",
+                  "description": "Fixture ID",
+                  "disabled": false
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Standings & Players",
+      "item": [
+        {
+          "name": "Standings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/standings?season=2025",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "standings"
+              ],
+              "query": [
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": false
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Players",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/players",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "players"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Player ID",
+                  "disabled": true
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                },
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search player name (min 3 chars)",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Pagination page number",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Players - Squads",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/players/squads?team=33",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "players",
+                "squads"
+              ],
+              "query": [
+                {
+                  "key": "team",
+                  "value": "33",
+                  "description": "Team ID",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Players - Profiles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/players/profiles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "players",
+                "profiles"
+              ],
+              "query": [
+                {
+                  "key": "player",
+                  "value": "276",
+                  "description": "Player ID",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search by player lastname (min 3 chars)",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Pagination page number",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Players - Seasons",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/players/seasons",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "players",
+                "seasons"
+              ],
+              "query": [
+                {
+                  "key": "player",
+                  "value": "276",
+                  "description": "Player ID \u2014 omit for all available seasons",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Players - Teams",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/players/teams",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "players",
+                "teams"
+              ],
+              "query": [
+                {
+                  "key": "player",
+                  "value": "",
+                  "description": "Player ID",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Players - Topscorers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/players/topscorers?league=39&season=2025",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "players",
+                "topscorers"
+              ],
+              "query": [
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": false
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Players - Topassists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/players/topassists?league=39&season=2025",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "players",
+                "topassists"
+              ],
+              "query": [
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": false
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Players - Topyellowcards",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/players/topyellowcards?league=39&season=2025",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "players",
+                "topyellowcards"
+              ],
+              "query": [
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": false
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Players - Topredcards",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/players/topredcards?league=39&season=2025",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "players",
+                "topredcards"
+              ],
+              "query": [
+                {
+                  "key": "league",
+                  "value": "39",
+                  "description": "League ID",
+                  "disabled": false
+                },
+                {
+                  "key": "season",
+                  "value": "2025",
+                  "description": "Season year",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Staff & Transfers",
+      "item": [
+        {
+          "name": "Coachs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/coachs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "coachs"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Coach ID",
+                  "disabled": true
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search coach name (min 3 chars)",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Transfers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/transfers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "transfers"
+              ],
+              "query": [
+                {
+                  "key": "player",
+                  "value": "",
+                  "description": "Player ID",
+                  "disabled": true
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Trophies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/trophies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "trophies"
+              ],
+              "query": [
+                {
+                  "key": "player",
+                  "value": "",
+                  "description": "Player ID",
+                  "disabled": true
+                },
+                {
+                  "key": "coach",
+                  "value": "",
+                  "description": "Coach ID",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Injuries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/injuries",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "injuries"
+              ],
+              "query": [
+                {
+                  "key": "league",
+                  "value": "",
+                  "description": "League ID",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "",
+                  "description": "Season year",
+                  "disabled": true
+                },
+                {
+                  "key": "fixture",
+                  "value": "",
+                  "description": "Fixture ID",
+                  "disabled": true
+                },
+                {
+                  "key": "team",
+                  "value": "",
+                  "description": "Team ID",
+                  "disabled": true
+                },
+                {
+                  "key": "player",
+                  "value": "",
+                  "description": "Player ID",
+                  "disabled": true
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "description": "Date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "timezone",
+                  "value": "",
+                  "description": "Timezone from /timezone",
+                  "disabled": true
+                },
+                {
+                  "key": "ids",
+                  "value": "",
+                  "description": "Fixture IDs separated by -",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Sidelined",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sidelined",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sidelined"
+              ],
+              "query": [
+                {
+                  "key": "player",
+                  "value": "",
+                  "description": "Player ID",
+                  "disabled": true
+                },
+                {
+                  "key": "coach",
+                  "value": "",
+                  "description": "Coach ID",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Predictions & Odds",
+      "item": [
+        {
+          "name": "Predictions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/predictions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "predictions"
+              ],
+              "query": [
+                {
+                  "key": "fixture",
+                  "value": "",
+                  "description": "Fixture ID",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Odds",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odds",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odds"
+              ],
+              "query": [
+                {
+                  "key": "fixture",
+                  "value": "",
+                  "description": "Fixture ID",
+                  "disabled": true
+                },
+                {
+                  "key": "league",
+                  "value": "",
+                  "description": "League ID",
+                  "disabled": true
+                },
+                {
+                  "key": "season",
+                  "value": "",
+                  "description": "Season year",
+                  "disabled": true
+                },
+                {
+                  "key": "date",
+                  "value": "",
+                  "description": "Date (YYYY-MM-DD)",
+                  "disabled": true
+                },
+                {
+                  "key": "bookmaker",
+                  "value": "",
+                  "description": "Bookmaker ID from /odds/bookmakers",
+                  "disabled": true
+                },
+                {
+                  "key": "bet",
+                  "value": "",
+                  "description": "Bet type ID from /odds/bets",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "Pagination page number",
+                  "disabled": true
+                },
+                {
+                  "key": "timezone",
+                  "value": "",
+                  "description": "Timezone from /timezone",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Odds - Live",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odds/live",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odds",
+                "live"
+              ],
+              "query": [
+                {
+                  "key": "fixture",
+                  "value": "",
+                  "description": "Fixture ID",
+                  "disabled": true
+                },
+                {
+                  "key": "league",
+                  "value": "",
+                  "description": "League ID",
+                  "disabled": true
+                },
+                {
+                  "key": "bet",
+                  "value": "",
+                  "description": "Live bet type ID from /odds/live/bets",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Odds - Bookmakers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odds/bookmakers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odds",
+                "bookmakers"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Bookmaker ID",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search bookmaker name",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Odds - Bets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odds/bets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odds",
+                "bets"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Bet type ID",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search bet name",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        },
+        {
+          "name": "Odds - Live - Bets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/odds/live/bets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "odds",
+                "live",
+                "bets"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "Live bet type ID",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "Search bet name",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "GET /"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
